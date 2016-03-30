@@ -6,38 +6,144 @@ CS1762 Web Technology Presentation
 
 * What is Go?
 
-Go is a programming language made by Google.
+Go is a programming language made at Google.
 
-.image gopher.png
+.image images/gopher.png
 
-- It was first released in 2009.
+- Creation started in 2007.
+- First version released in 2009.
 - The most recent version, 1.6, was released this February. 
+- Its mascot is a Gopher.
+- It's completely open-source.
 
 * Go's Creators
 
-.image images/robert_griesemer.jpg 400 _
-.image images/rob_pike.jpg 400 _
-.image images/ken_thompson.jpg 400 _
+.html html/gocreators.html
+
+- Robert Griesemer (V8)
+- Rob Pike (UTF-8)
+- Ken Thompson (B, UTF-8, Unix)
+
+* Go as a language
+
+A direct response to the problems of modern programming languages.
+
+Designed to be
+
+- Scalable
+- Concurrent
+- Simple
+
+Features
+
+- Static typing
+- Object-oriented (In its own way)
+- Handles memory
+- Built-in garbage collection
+- Compiled (using Go since v1.5!), not interpreted
 
 * Who is using Go?
 
+.html html/usinggo.html
 
+* A Few Basics of Go
 
-* Go as a Language
+* Datatypes
 
+Primitives
 
+  myNumber int (float, complex, sized variants, etc)
+  myString string
+  myBoolean , myOtherBoolean , myFinalBoolean bool
+  ...
+  
+Arrays, Slices, and Maps
 
-* Basics
+  myArray [10]int
+  mySlice []int
+  myMap map[string]int
+  
+Assignment
+ 
+  var myInteger int = 4
+  newInteger := 4
+  
+Pointers
 
+  var myIntPointer *int
+  
+* Functions
 
+Basic function
 
-* Structs and Interfaces
+  func myFunction( x , y int ) int {
+    ...
+    return thing
+  }
+  returned := myFunction(1,2)
 
+  
+Multiple return types
+ 
+  func sumAndAverage( x , y , z int) (sum , avg int) {
+    ...
+    return sum , avg
+  }
+  mySum , myAverage := safelySum(1,2,3)
+  
+Variadic functions
 
+  func SumLotsOfNumbers( nums int... ) int {
+    ...
+    return thing
+  }
+  
+* Custom Types and Structs
 
-* Concurrency
+Custom type definitions
 
+  type myType int
 
+Structs
+  
+  type Position struct {
+    x , y , z int
+  }
+  
+  var myHomeLocation Position = new(Position)
+  myHomeLocation.x = 4
+  
+Struct methods
+
+  func (p Position) distanceFrom(o Position) int {
+  }
+  
+* Interfaces
+
+Interfaces
+
+  type Summable interface {
+    sum() int
+  }
+
+As variables
+  
+  type SliceOfSummables struct {
+    sumlist []Summable
+  }
+  
+Nested interfaces (Implicit)
+
+  type SumAndAverage interface {
+    sum() int
+    avg() int
+  }
+
+* Hello World
+
+.code code/hello_world.go
+
+.play code/hello_world.go /func main()/,
 
 * What are Go-routines?
 
@@ -51,4 +157,4 @@ Go is a programming language made by Google.
 
 
 
-* 
+* Stuff

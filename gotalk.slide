@@ -8,16 +8,16 @@ CS1762 Web Technology Presentation
 
 Go is a programming language made by Google.
 
-.img gopher.png
+.image gopher.png
 
 - It was first released in 2009.
 - The most recent version, 1.6, was released this February. 
 
 * Go's Creators
 
-.img images/robert_griesemer.jpg 400 _
-.img images/rob_pike.jpg 400 _
-.img images/ken_thompson.jpg 400 _
+.image images/robert_griesemer.jpg 400 _
+.image images/rob_pike.jpg 400 _
+.image images/ken_thompson.jpg 400 _
 
 * Who is using Go?
 

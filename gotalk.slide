@@ -32,11 +32,11 @@ hjones@aurainfinity.com
 
 * What are Go-routines?
 
-.play goroutine_1.go
+.play code/goroutine_1.go
 
 * Using a Go-routines
 
-.play goroutine_2.go
+.play code/goroutine_2.go
 
 * Let's simulate a Web Service
 

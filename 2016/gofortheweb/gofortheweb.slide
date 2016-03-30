@@ -1,0 +1,267 @@
+Go for the Web
+The rise of concurrent web applications
+
+Holden Jones
+CS1762 Web Technology Presentation
+
+* What is Go?
+
+Go is a programming language made at Google.
+
+.image images/gopher.png
+.caption _The_Go_Gopher_ by [[http://www.reneefrench.com][Renée French]]
+
+- Creation started in 2007.
+- First version released in 2009.
+- The most recent version, 1.6, was released this February. 
+- Its mascot is a Gopher.
+- It's completely open-source.
+
+* Go's Creators
+
+.html html/gocreators.html
+
+- Robert Griesemer (V8)
+- Rob Pike (UTF-8)
+- Ken Thompson (B, UTF-8, Unix)
+
+* Go as a language
+
+A direct response to the problems of modern programming languages.
+
+Designed to be
+
+- Scalable
+- Concurrent
+- Simple
+
+Features
+
+- Static typing
+- Object-oriented (In its own way)
+- Handles memory
+- Built-in garbage collection
+- Compiled (using Go since v1.5!), not interpreted
+
+* A Few Basics of Go
+
+* Datatypes
+
+Primitives
+
+  myNumber int (float, complex, sized variants, etc)
+  myString string
+  myBoolean , myOtherBoolean , myFinalBoolean bool
+  ...
+  
+Arrays, Slices, and Maps
+
+  myArray [10]int
+  mySlice []int
+  myMap map[string]int
+  
+Assignment
+ 
+  var myInteger int = 4
+  newInteger := 4
+  
+Pointers
+
+  var myIntPointer *int
+  
+* Functions
+
+Basic function
+
+  func myFunction( x , y int ) int {
+    ...
+    return thing
+  }
+  returned := myFunction(1,2)
+
+  
+Multiple return types
+ 
+  func sumAndAverage( x , y , z int) (sum , avg int) {
+    ...
+    return sum , avg
+  }
+  mySum , myAverage := safelySum(1,2,3)
+  
+Variadic functions
+
+  func SumLotsOfNumbers( nums int... ) int {
+    ...
+    return thing
+  }
+  
+* Custom Types and Structs
+
+Custom type definitions
+
+  type MyType int
+
+Structs
+  
+  type Position struct {
+    X , Y , Z int
+  }
+  
+  var myHomeLocation Position = new(Position)
+  myHomeLocation.X = 4
+  
+Struct methods
+
+  func (p Position) DistanceFrom(o Position) int {
+  }
+  
+* Interfaces
+
+Interfaces
+
+  type Summable interface {
+    Sum() int
+  }
+
+As variables
+  
+  type SliceOfSummables struct {
+    Sumlist []Summable
+  }
+  
+Nested interfaces (Implicit)
+
+  type SumAndAverage interface {
+    Sum() int
+    Avg() int
+  }
+
+* Hello World
+
+.play code/hello_world.go
+
+* Concurrency : Why Go is useful for web technologies?
+
+* What are Go-routines?
+
+.play code/goroutine_1.go /func main()/,
+
+* Using a Go-routine
+
+.play code/goroutine_2.go /func main()/,
+
+* "Concurrency is not Parallelism"
+
+- Goroutines do not necessarily run in parallel
+- Only guaranteed to share processor time
+- Instead, Go optimizes itself based on your architecture
+- This behavior can be controlled if needed
+
+* Communication between goroutines
+
+.play code/goroutine_3.go /func main()/,
+
+* Let's simulate a Web Service
+
+* Web service
+
+Let's say we have some kind of web service that handles user input.
+
+.play code/goroutine_4.go /func handleUser()/,
+
+* Web service
+
+Now let's call that web service.
+
+.play code/goroutine_4.go /func main()/,/^}/
+
+* Multiplexing
+
+Let's make a function that returns a channel
+
+.play code/select.go /func randomDelay()/,/^}/
+
+* Multiplexing
+
+Multiplexing is the act of "fanning in" many channels.
+
+.image images/gopher_fanin.jpg _ 400
+.caption _Image_ from [[https://talks.golang.org/2012/concurrency.slide#28]["Go Concurrency Patterns" by Rob Pike]]
+
+.play code/select.go /func main()/,/^}/
+
+* Select Statement
+
+A much better solution.
+
+.play code/select2.go /func main()/,/^}/
+
+Select is like a Switch, but with communication
+
+* Concurrency and the Web
+
+Go is a response to the modern software environment.
+
+- In the modern web, a single thread can often not be enough to handle the traffic of your website or web service
+- Go's concurrency features make it much easier to design a website that can scale as much as you need it to
+- If you don't want to use channels, then the go "sync" package is for you!
+
+However, Go for the web is about more than just concurrency...
+
+
+* Go Web Packages
+
+* HTTP and Databases
+
+Go has a huge variety of built-in packages helpful for web programming.
+
+- database/sql package (and database/sql/driver, with public implementations)
+- encoding packages (JSON, XML, ascii85 for Adobe's PostScript and PDF)
+- HTML package and its template package (Similar to Handlebars) 
+- Image manipulation libraries (JPEG, PNG, GIF)
+- HTTP client and server packages (With HTTP/2 as of Go 1.6)
+- Mail package, SMTP package, and MIME parsing package for email attachments
+- RPC package for implementing Remote Procedure Calls
+- An extremely useful and easy to use unit testing system
+- cgo for binding to C libraries, expanding the network even further
+
+* User Packages + Frameworks
+
+Go users have created a massive amount of useful packages and frameworks
+
+- CSS preprocessor implementations (SASS, LESS)
+- go-vcr for HTTP testing
+- API packages (Github, Snapchat, Twitter, Facebook, AWS, HipChat, PayPal, Tumblr)
+- Frameworks for creating your own APIs
+- Pooling packages for creating pools of goroutines
+
+.link https://github.com/avelino/awesome-go Awesome-Go Package List
+
+And lots of Website Frameworks..
+
+* Revel
+
+.iframe https://revel.github.io/ 600 1000
+
+* Gorilla
+
+.iframe http://www.gorillatoolkit.org/ 600 1000
+
+* Golf
+
+.iframe http://golfweb.github.io/ 600 1000
+
+* In conclusion..
+
+* Go is on the rise
+
+Interest in Go has steadily risen over the past five years.
+
+.image images/on_the_rise.png 
+.caption Image of Google Trends data for searches of "golang". Image taken 3/30/2016
+
+And a lot of really cool software has been made in Go
+
+* Who is using Go?
+
+.html html/usinggo.html

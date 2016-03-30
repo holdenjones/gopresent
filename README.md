@@ -1,6 +1,7 @@
 # gopresent
 Golang Presentations by Holden Jones
 
+All talks use the official [Go Present tool](https://godoc.org/golang.org/x/tools/present).
 
 Currently:
 

@@ -3,12 +3,21 @@ Using Go to make web sites and services.
 
 Holden Jones
 CS1762 Web Technology Presentation
-@digitalnexus
-hjones@aurainfinity.com
 
 * What is Go?
 
+Go is a programming language made by Google.
 
+.img gopher.png
+
+- It was first released in 2009.
+- The most recent version, 1.6, was released this February. 
+
+* Go's Creators
+
+.img images/robert_griesemer.jpg 400 _
+.img images/rob_pike.jpg 400 _
+.img images/ken_thompson.jpg 400 _
 
 * Who is using Go?
 

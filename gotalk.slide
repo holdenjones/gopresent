@@ -1,0 +1,45 @@
+Go for the Web
+Using Go to make web sites and services.
+
+Holden Jones
+CS1762 Web Technology Presentation
+@digitalnexus
+hjones@aurainfinity.com
+
+* What is Go?
+
+
+
+* Who is using Go?
+
+
+
+* Go as a Language
+
+
+
+* Basics
+
+
+
+* Structs and Interfaces
+
+
+
+* Concurrency
+
+
+
+* What are Go-routines?
+
+.play goroutine_1.go
+
+* Using a Go-routines
+
+.play goroutine_2.go
+
+* Let's simulate a Web Service
+
+
+
+* 
